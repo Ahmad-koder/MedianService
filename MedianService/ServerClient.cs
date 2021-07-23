@@ -60,8 +60,6 @@ namespace MedianService
         {
             try
             {
-                Console.WriteLine("Process start" + index);
-
                 byte[] dataWrite = System.Text.Encoding.GetEncoding("KOI8-R").GetBytes(index);
 
                 stream.Write(dataWrite, 0, dataWrite.Length);
@@ -85,8 +83,6 @@ namespace MedianService
                     Thread.Sleep(2000);
 
                 } while (matches.Count == 0);
-
-                Console.WriteLine("Op " + index);
 
                 Console.WriteLine(index + matches[0]);
 
@@ -114,17 +110,8 @@ namespace MedianService
             numbers.Sort();
 
             var middle = numbers.Count / 2;
-
-            if (numbers.Count % 2 != 0)
-            {
-                Console.WriteLine(numbers[middle]);
-            }
-            else
-            { 
-                Console.WriteLine((numbers[middle] + numbers[middle - 1]) * 0.5);
-            }
-
-            Console.WriteLine("Finish");
+          
+            Console.WriteLine((numbers[middle] + numbers[middle - 1]) * 0.5);
 
             Program.taskQueue.Dispose();
 
